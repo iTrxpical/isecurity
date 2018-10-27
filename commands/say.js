@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
 
-exports.run = (args, client, Util, prefix, msg, tmods, mods, sm, owner) => {
+exports.run = (args, client, Util, prefix, msg, staff) => {
   
-    if (!sm) return;
+    if (!staff.sm) return;
     msg.delete().catch();
     let botmessage = args.join(" ");
     msg.channel.send(botmessage);

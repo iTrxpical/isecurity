@@ -13,7 +13,7 @@ setInterval(() => {
 const Discord = require('discord.js');
 const { RichEmbed, Client, Util, discord } = require('discord.js');
 const prefix = '.';
-const { tmods, mods, sm, owner } = require('./mods.js');
+const staff = require('./staff.json')
 const client = new Client()
 
   setInterval(function() {
@@ -49,7 +49,7 @@ client.on('message', async msg => {
     try {
 
         let commandFile = require(`./commands/${cmd}.js`);
-        commandFile.run(args, client, Util, prefix, msg, tmods, mods, sm, owner);
+        commandFile.run(args, client, Util, prefix, msg, staff);
 
     } catch (e) {
 
