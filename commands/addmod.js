@@ -1,15 +1,15 @@
 const Discord = require('discord.js')
 
-exports.run = (args, client, Util, prefix, msg, tmods, mods, sm, owner) => {
+exports.run = (args, client, Util, prefix, msg, staff) => {
 
-    if (owner.includes(userid)) {
+  var useridm = msg.author.id;
+  
+    //if (staff.owner.includes(userid)) {
 
-        var user = msg.author.metions.first();
+        var user = msg.mentions.members.first();
         var userid = user.id;
-
-      console.log(userid)
       
-        if (mods.includes(userid)) {
+        if (staff.mods.includes(userid)) {
             const embed = new Discord.RichEmbed()
 
                 .setTitle(":warning: Error")
@@ -21,10 +21,10 @@ exports.run = (args, client, Util, prefix, msg, tmods, mods, sm, owner) => {
                 })
         } else {
 
-          return mods.push(userid);
-
+          staff.mods.push(userid)
+          return msg.channel.send(`done`);
         }
-    } else {
-console.log(`1`)
-    }
+    //} else {
+//console.log(`1`)
+    //}
 }
